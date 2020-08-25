@@ -1,31 +1,31 @@
-Robot vezérlo protokol:
-soros kommunikáció
+Robot vezÃ©rlo protokol:
+soros kommunikÃ¡ciÃ³
 
-Az indító pult küldi a robotnak:
-- adat kezdete: #! 
-- Bal oldali motor: irány, sebesség 
-- Jobb oldali motor: irány, sebesség
-- 1. szervó: szög, sebesség
-- 2. szervó: szög, sebesség
-- 3. szervó: szög, sebesség
-- 4. szervó: szög, sebesség
-- adat vége: !#
+Az indÃ­tÃ³ pult kÃ¼ldi a robotnak:
+- adat kezdete: {
+- Bal oldali motor: irÃ¡ny, sebessÃ©g 
+- Jobb oldali motor: irÃ¡ny, sebessÃ©g
+- 1. szervÃ³: szÃ¶g, sebessÃ©g
+- 2. szervÃ³: szÃ¶g, sebessÃ©g
+- 3. szervÃ³: szÃ¶g, sebessÃ©g
+- 4. szervÃ³: szÃ¶g, sebessÃ©g
+- adat vÃ©ge: }
 
-Az irány értéke:
+Az irÃ¡ny Ã©rtÃ©ke:
 - 1 : elore
-- 0 : hátra
+- 0 : hÃ¡tra
 
-Sebesség:
-- 0: áll
-- 1: kis sebesség
-- 2: kicsit több
-- 3: közepes sebesség
-- 4: nagy sebesség
-- 5: hiper nagy sebesség(elképzelhetetlen sebesség)
+SebessÃ©g:
+- 0: Ã¡ll
+- 1: kis sebessÃ©g
+- 2: kicsit tÃ¶bb
+- 3: kÃ¶zepes sebessÃ©g
+- 4: nagy sebessÃ©g
+- 5: hiper nagy sebessÃ©g(elkÃ©pzelhetetlen sebessÃ©g)
 
-Szög: fokban értendo 0-180fok
+SzÃ¶g: fokban Ã©rtendo 0-180fok
 
 
-Példa:
-#!1,3,0,3,120,4,0,0,0,0,0,0!#
-A bal motor elore közepes sebességgel, jobb motor hátra közepes sebességgel (körbe fordul), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
+PÃ©lda:
+{1,3,0,3,120,4,0,0,0,0,0,0}
+A bal motor elore kÃ¶zepes sebessÃ©ggel, jobb motor hÃ¡tra kÃ¶zepes sebessÃ©ggel (kÃ¶rbe fordul), 1. szervo 120 fokra, nagy sebessÃ©ggel. A tÃ¶bbi szervÃ³ Ã¡ll.

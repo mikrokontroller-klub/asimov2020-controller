@@ -2,14 +2,14 @@ Robot vezérlo protokol:
 soros kommunikáció
 
 Az indító pult küldi a robotnak:
-- adat kezdete: {
+- adat kezdete: #
 - Bal oldali motor: irány, sebesség 
 - Jobb oldali motor: irány, sebesség
 - 1. szervó: szög, sebesség
 - 2. szervó: szög, sebesség
 - 3. szervó: szög, sebesség
 - 4. szervó: szög, sebesség
-- adat vége: }
+- adat vége: *
 
 Az irány értéke:
 - 1 : elore
@@ -27,5 +27,5 @@ Szög: fokban értendo 0-180fok
 
 
 Példa:
-{1,3,0,3,120,4,0,0,0,0,0,0}
+#1,3,0,3,120,4,0,0,0,0,0,0*
 A bal motor elore közepes sebességgel, jobb motor hátra közepes sebességgel (körbe fordul), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.

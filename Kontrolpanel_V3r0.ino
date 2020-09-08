@@ -1,7 +1,7 @@
 /*Kontrolpanel a MaM 2020 robothoz
  *-------------------------------- 
  * V3r0
- * Képes bluetooth-on kommunikálni Master --> Slave(notBLM) módban
+ * Képes bluetooth-on kommunikálni Master --> Slave módban
  * Kiírja az Adafruit_SSD1306 OLED kijelzőre az adatokat
  * 
  * Módosítva 2020.09.08 - Ármin A. Rába 

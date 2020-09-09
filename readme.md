@@ -1,4 +1,5 @@
 # MaM kontrolpanel programja
+# Verzió: V3r0
 
 Jelenlegi állapotban erre képes:
 

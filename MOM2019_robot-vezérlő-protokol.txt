@@ -49,28 +49,20 @@ A bal motor hátra közepes sebességgel, jobb motor hátra közepes sebességge
 
 MOZGÁS IRÁNYÍTÁS:
 
-sebesség = pot
-
 1.  Stop:
-    #,0,0,0,0,0,0,0,0,0,0,0,0,* 
+    #,0,x,0,x,0,0,0,0,0,0,0,0,*
 
 2.  Előre:
-    #,1,pot,1,pot,0,pot,0,pot,0,pot,0,pot,*
+    #,1,x,1,x,0,0,0,0,0,0,0,0,* 
 
 3.  Hátra:
-    #,2,pot,2,pot,0,pot,0,pot,0,pot,0,pot,*
+    #,0,x,0,x,0,0,0,0,0,0,0,0,*
 
-4.  Gyorsan előre balra:
-    #,2,pot,1,pot,0,pot,0,pot,0,pot,0,pot,*
+4.  Balra:
+    #,0,x,1,x,0,0,0,0,0,0,0,0,*
 
-5.  Gyorsan előre jobbra:
-    #,1,pot,2,pot,0,pot,0,pot,0,pot,0,pot,*
-
-6.  Balra:
-    #,0,pot,1,pot,0,pot,0,pot,0,pot,0,pot,*
-
-7.  Jobbra:
-    #,1,pot,0,pot,0,pot,0,pot,0,pot,0,pot,*
+5.  Jobbra:
+    #,1,x,0,x,0,0,0,0,0,0,0,0,*
    
    
 SZERVÓ IRÁNYÍTÁS: 

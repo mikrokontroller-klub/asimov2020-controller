@@ -14,7 +14,6 @@ Az indító pult küldi a robotnak:
 Az irány értéke:
 - 0 : stop
 - 1 : elore
-- 2 : hátra
 
 Sebesség:
 - 0: áll
@@ -32,19 +31,19 @@ PÉLDA:
 #,bal motor,sebesség,jobb motor,sebesség,szervó1,sebesség,szervó2,sebesség,szervó3,sebesség,szervó4,sebesség,*
 A karakterek száma: 14
 
-#1,3,2,3,120,4,0,0,0,0,0,0*
+#1,3,0,3,120,4,0,0,0,0,0,0*
 A bal motor elore közepes sebességgel, jobb motor hátra közepes sebességgel (körbe fordul), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
 
 Stop:
-#,0,0,0,0,0,0,0,0,0,0,0,0,* 
+#,0,0,0,0,120,0,0,0,0,0,0,0,* 
 A bal motor stop 0 sebességgel, jobb motor stop 0 sebességgel (stop), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
 
 Előre:
-#,1,pot,1,pot,120,pot,0,pot,0,pot,0,pot,* 
+#,1,3,1,3,120,4,0,0,0,0,0,0,*  
 A bal motor előre közepes sebességgel, jobb motor előre közepes sebességgel (előre megy), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
 
 Hátra:
-#2,3,2,3,120,4,0,0,0,0,0,0*
+#0,3,0,3,120,4,0,0,0,0,0,0*
 A bal motor hátra közepes sebességgel, jobb motor hátra közepes sebességgel (előre megy), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
 
 MOZGÁS IRÁNYÍTÁS:

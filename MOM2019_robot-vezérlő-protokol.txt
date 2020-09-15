@@ -65,7 +65,9 @@ MOZGÁS IRÁNYÍTÁS:
     #,1,x,0,x,0,0,0,0,0,0,0,0,*
    
    
-SZERVÓ IRÁNYÍTÁS: 
+SZERVÓ IRÁNYÍTÁS:
+
+#,bal motor,sebesség,jobb motor,sebesség,s_Servo,sebesség,h_Servo,sebesség,g_Servo,sebesség,?_Servo,sebesség,*
 
 Függőleges:
 1. s_Servo  #,0,x,0,x,s_Servo,0,0,0,0,0,0,0,* tartomány: 40-180°

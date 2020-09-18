@@ -1,6 +1,8 @@
+
 void P1() //Előre menet
 {
-  char data[27];
+  //Ha a potméter 0, akkor ne csinálon semmit ,ne leheseen forogni vagy akármit csinálni 
+  char data[27]; //Karakterek megszámolása FONTOS!
   while (scanner() != 0) //Amíg az érték nem egyenlő a nullával, csinálja az alábbit:
   {
     int btA = digitalRead(BA);
@@ -47,6 +49,6 @@ void P1() //Előre menet
         //Ha minden 0 akkor a léptető motorok ne mozduljanak meg, a szervók tartsák az eredeti pozíciójukat, ne forogjon
       }
     }
-    //delay(1000); //ki kell kapcsolni
+    delay(1000); //ki kell kapcsolni
   }
 }

@@ -1,19 +1,20 @@
-Robot vezérlo protokol:
+Robot vezérlő protokol:
 soros kommunikáció
 
-Az indító pult küldi a robotnak:
-- adat kezdete: #
-- Bal oldali motor: irány, sebesség 
-- Jobb oldali motor: irány, sebesség
-- 1. szervó: szög, sebesség
-- 2. szervó: szög, sebesség
-- 3. szervó: szög, sebesség
-- 4. szervó: szög, sebesség
-- adat vége: *
+Az indítópult küldi a robotnak:
+- Adat kezdete: #
+- Sebesség
+- Bal oldali motor: irány
+- Jobb oldali motor: irány
+- 1. szervó: szög
+- 2. szervó: szög
+- 3. szervó: szög
+- 4. szervó: szög
+- Adat vége: *
 
 Az irány értéke:
 - 0 : stop
-- 1 : elore
+- 1 : előre
 
 Sebesség:
 - 0: áll
@@ -21,61 +22,77 @@ Sebesség:
 - 2: kicsit több
 - 3: közepes sebesség
 - 4: nagy sebesség
-- 5: hiper nagy sebesség(elképzelhetetlen sebesség)
+- 5: elképzelhetetlen sebesség
 
-Szög: fokban értendo 0-180fok
+Szög: fokban értendő 0-180°
 
 
 PÉLDA:
 
-#,bal motor,sebesség,jobb motor,sebesség,szervó1,sebesség,szervó2,sebesség,szervó3,sebesség,szervó4,sebesség,*
-A karakterek száma: 14
-
-#1,3,0,3,120,4,0,0,0,0,0,0*
-A bal motor elore közepes sebességgel, jobb motor hátra közepes sebességgel (körbe fordul), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
+#,sebesség,bal motor,jobb motor,szervó1,szervó2,szervó3,szervó4,*
+A karakterek száma: 9
 
 Stop:
-#,0,0,0,0,120,0,0,0,0,0,0,0,* 
-A bal motor stop 0 sebességgel, jobb motor stop 0 sebességgel (stop), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
+#,0,0,0,120,0,0,0,*
+Sebesség: stop, bal motor hátra, jobb motor hátra, (áll), 1. szervo 120 fokra, A többi szervó áll.
 
 Előre:
-#,1,3,1,3,120,4,0,0,0,0,0,0,*  
-A bal motor előre közepes sebességgel, jobb motor előre közepes sebességgel (előre megy), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
+#,3,1,1,120,0,0,0,*
+Közepes sebességgel, bal motor előre, jobb motor előre, (előre), 1. szervo 120 fokra, A többi szervó áll.
 
 Hátra:
-#0,3,0,3,120,4,0,0,0,0,0,0*
-A bal motor hátra közepes sebességgel, jobb motor hátra közepes sebességgel (előre megy), 1. szervo 120 fokra, nagy sebességgel. A többi szervó áll.
+#,3,0,0,120,0,0,0,*
+Közepes sebességgel, bal motor hátra, jobb motor hátra, (hátra), 1. szervo 120 fokra, A többi szervó áll.
+
+Balra:
+#,3,0,1,120,0,0,0,*
+Közepes sebességgel, bal motor hátra, jobb motor előre, (balra körbe fordul), 1. szervo 120 fokra, A többi szervó áll.
+
+Jobbra:
+#,3,1,0,120,0,0,0,*
+Közepes sebességgel, bal motor előre, jobb motor hátra, (jobbra körbe fordul), 1. szervo 120 fokra, A többi szervó áll.
+
+
 
 MOZGÁS IRÁNYÍTÁS:
 
 1.  Stop:
-    #,0,x,0,x,0,0,0,0,0,0,0,0,*
+    #,0,0,0,120,0,0,0,*
 
 2.  Előre:
-    #,1,x,1,x,0,0,0,0,0,0,0,0,* 
+    #,3,1,1,120,0,0,0,*
 
 3.  Hátra:
-    #,0,x,0,x,0,0,0,0,0,0,0,0,*
+    #,3,0,0,120,0,0,0,*
 
 4.  Balra:
-    #,0,x,1,x,0,0,0,0,0,0,0,0,*
+    #,3,0,1,120,0,0,0,*
 
 5.  Jobbra:
-    #,1,x,0,x,0,0,0,0,0,0,0,0,*
+    #,3,1,0,120,0,0,0,*
    
    
 SZERVÓ IRÁNYÍTÁS:
 
-#,bal motor,sebesség,jobb motor,sebesség,s_Servo,sebesség,h_Servo,sebesség,g_Servo,sebesség,?_Servo,sebesség,*
+#,sebesség,bal motor,jobb motor,s_Servo,h_Servo,g_Servo,?_Servo,*
 
-Függőleges:
-1. s_Servo  #,0,x,0,x,s_Servo,0,0,0,0,0,0,0,* tartomány: 40-180°
+1. Függőleges:
+s_Servo  #,3,1,0,s_Servo,0,0,0,*
+Tartomány: 40-180°
+PÉLDA:   #,3,1,0,120,0,0,0,*
 
-Vízszintes:
+2. Vízszintes:
 Vízszintesen elfordítani akkor lehet a h_Servo -t, ha az s_Servo -t 90 fokra feleemeljük.
-2. h_Servo  #,0,x,0,x,s_Servo,0,h_Servo,0,0,0,0,0,* tartomány: 0-180°
+h_Servo  #,3,1,0,s_Servo,h_Servo,0,0,*
+Tartomány: 0-180°
+PÉLDA:   #,3,1,0,120,110,0,0,*
 
-Fogó:
-3. g_Servo  #,0,x,0,x,s_Servo,0,h_Servo,0,g_Servo,0,0,0,* tartomány: ?°
+3. Fogó:
+g_Servo  #,3,1,0,s_Servo,h_Servo,g_Servo,0,*
+Tartomány: ?°
+PÉLDA:   #,3,1,0,120,110,100,0,*
 
-4. ?_Servo  #,0,x,0,x,s_Servo,0,h_Servo,0,g_Servo,0,?,0,* tartomány: ?°
+4.
+?_Servo  #,3,1,0,s_Servo,h_Servo,g_Servo,?_Servo,*
+Tartomány: ?°
+PÉLDA:   #,3,1,0,120,110,100,90,*

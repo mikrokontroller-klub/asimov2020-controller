@@ -1,7 +1,7 @@
 //Változók: motorok statikusak, a pot változó, a szervók globális változók
 void P1()//Előre menet
 {
-  Serial.println("Elore");
+  //Serial.println("Elore");
   while (scanner() != 0)
   {
     int btA = digitalRead(BA);
@@ -9,7 +9,7 @@ void P1()//Előre menet
     if (btA == 0)
     {
       int potV = analogRead(POT);
-      potV = map(potV,POTMETER_MIN,POTMETER_MAX,0,6);//macska
+      potV = map(potV,POTMETER_MIN,POTMETER_MAX,0,6);
       Serial.println("BALRA ELORE"); 
     }
     if (btB == 0)

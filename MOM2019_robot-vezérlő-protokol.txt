@@ -74,25 +74,25 @@ MOZGÁS IRÁNYÍTÁS:
    
 SZERVÓ IRÁNYÍTÁS:
 
-#,sebesség,bal motor,jobb motor,s_Servo,h_Servo,g_Servo,?_Servo,*
+#,sebesség,bal motor,jobb motor,v_Servo,h_Servo,g_Servo,?_Servo,*
 
 1. Függőleges:
-s_Servo  #,3,1,0,s_Servo,0,0,0,*
+v_Servo  #,3,1,0,v_Servo,0,0,0,*
 Tartomány: 40-180°
 PÉLDA:   #,3,1,0,120,0,0,0,*
 
 2. Vízszintes:
-Vízszintesen elfordítani akkor lehet a h_Servo -t, ha az s_Servo -t 90 fokra feleemeljük.
-h_Servo  #,3,1,0,s_Servo,h_Servo,0,0,*
+Vízszintesen elfordítani akkor lehet a h_Servo -t, ha az v_Servo -t 90 fokra feleemeljük.
+h_Servo  #,3,1,0,v_Servo,h_Servo,0,0,*
 Tartomány: 0-180°
 PÉLDA:   #,3,1,0,120,110,0,0,*
 
 3. Fogó:
-g_Servo  #,3,1,0,s_Servo,h_Servo,g_Servo,0,*
+g_Servo  #,3,1,0,v_Servo,h_Servo,g_Servo,0,*
 Tartomány: ?°
 PÉLDA:   #,3,1,0,120,110,100,0,*
 
 4.
-?_Servo  #,3,1,0,s_Servo,h_Servo,g_Servo,?_Servo,*
+?_Servo  #,3,1,0,v_Servo,h_Servo,g_Servo,?_Servo,*
 Tartomány: ?°
 PÉLDA:   #,3,1,0,120,110,100,90,*

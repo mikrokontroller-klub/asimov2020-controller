@@ -47,6 +47,6 @@ void P1() //Előre menet
         //Ha minden 0 akkor a léptető motorok ne mozduljanak meg, a szervók tartsák az eredeti pozíciójukat, ne forogjon
       }
     }
-    delay(1000); //ki kell kapcsolni
+    //delay(1000); //ki kell kapcsolni
   }
 }

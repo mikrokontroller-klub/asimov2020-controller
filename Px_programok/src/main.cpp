@@ -9,7 +9,7 @@ void P1()//Előre menet
     if (btA == 0)
     {
       int potV = analogRead(POT);
-      potV = map(potV,POTMETER_MIN,POTMETER_MAX,0,6);//kecske
+      potV = map(potV,POTMETER_MIN,POTMETER_MAX,0,6);//macska
       Serial.println("BALRA ELORE"); 
     }
     if (btB == 0)

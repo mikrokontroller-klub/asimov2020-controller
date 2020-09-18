@@ -1,16 +1,6 @@
-/*Létrehozott változók
-* char data[10]; //Ebben(a bufferben) tároljuk a protokol szerinti értékeket - GLOBÁLIS
-* char* bgn = "#"; //Ezzel Kezdődik - GLOBÁLIS
-* char* motB = "1"; //Baldldali motor - LOKÁLIS
-* char* motJ = "0"; //Jobboldali motor - LOKÁLIS
-* char* nd = "*"; //Ezzel végződik - GLOBÁLIS
-* A 4. szervónak x_Servo nevet adtam, hogy tudjak haladni a programmal
-*/
-
 void P1() //Előre menet
 {
-  char *motB = ""; //Baloldali motor
-  char *motJ = ""; //Jobboldali motor
+  char data[27];
   while (scanner() != 0) //Amíg az érték nem egyenlő a nullával, csinálja az alábbit:
   {
     int btA = digitalRead(BA);
@@ -19,11 +9,9 @@ void P1() //Előre menet
     {
       int potV = analogRead(POT);
       potV = map(potV, POTMETER_MIN, POTMETER_MAX, 0, 6);
-      motB = "0";
-      motJ = "1";
       Serial.println("BALRA ELORE");
-      sprintf(data, "%s,%d,%s,%s,%d,%d,%d,%d,%s", bgn, potV, motB, motJ, s_Servo, h_Servo, g_Servo, x_Servo, nd);
-      //char,int,char,char,int,int,int,int,char
+      sprintf(data, "#,%d,0,1,%d,%d,%d,0,*", potV, v_Servo_angle, h_Servo_angle, g_Servo_angle);
+      //#int,x,x,int,int,int,int*
       Serial.println(data);
       Serial3.println(data);
     }
@@ -31,11 +19,9 @@ void P1() //Előre menet
     {
       int potV = analogRead(POT);
       potV = map(potV, POTMETER_MIN, POTMETER_MAX, 0, 6);
-      motB = "1";
-      motJ = "0";
       Serial.println("JOBBRA ELORE");
-      sprintf(data, "%s,%d,%s,%s,%d,%d,%d,%d,%s", bgn, potV, motB, motJ, s_Servo, h_Servo, g_Servo, x_Servo, nd);
-      //char,int,char,char,int,int,int,int,char
+      sprintf(data, "#,%d,1,0,%d,%d,%d,0,*", potV, v_Servo_angle, h_Servo_angle, g_Servo_angle);
+      //#int,x,x,int,int,int,int*
       Serial.println(data);
       Serial3.println(data);
     }
@@ -45,24 +31,22 @@ void P1() //Előre menet
       potV = map(potV, POTMETER_MIN, POTMETER_MAX, 0, 6);
       if (potV > 0) //Ha a sebesség nagyobb mint 0, menjen előre
       {
-        motB = "1";
-        motJ = "1";
         Serial.println("ELORE");
-        sprintf(data, "%s,%d,%s,%s,%d,%d,%d,%d,%s", bgn, potV, motB, motJ, s_Servo, h_Servo, g_Servo, x_Servo, nd);
-        //char,int,char,char,int,int,int,int,char
+        sprintf(data, "#,%d,1,1,%d,%d,%d,0,*", potV, v_Servo_angle, h_Servo_angle, g_Servo_angle);
+        //#int,x,x,int,int,int,int*
         Serial.println(data);
         Serial3.println(data);
       }
       else //Különben álljon meg
       {
-        motB = "0";
-        motJ = "0";
         Serial.println("STOP");
-        sprintf(data, "%s,%d,%s,%s,%d,%d,%d,%d,%s", bgn, potV, motB, motJ, s_Servo, h_Servo, g_Servo, x_Servo, nd);
-        //char,int,char,char,int,int,int,int,char
+        sprintf(data, "#,%d,1,1,%d,%d,%d,0,*", potV, v_Servo_angle, h_Servo_angle, g_Servo_angle);
+        //#int,x,x,int,int,int,int*
         Serial.println(data);
         Serial3.println(data);
+        //Ha minden 0 akkor a léptető motorok ne mozduljanak meg, a szervók tartsák az eredeti pozíciójukat, ne forogjon
       }
     }
+    delay(1000); //ki kell kapcsolni
   }
 }
